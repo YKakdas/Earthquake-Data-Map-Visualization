@@ -12,12 +12,12 @@ library(tmaptools)
 
 
 ```{r warning=FALSE}
-source("ApiSecretKey.R")
-source("create_query.R")
-source("create_info_text.R")
-source("magnitude_color.R")
-source("statistics.R")
-source("plotting.R")
+source("scripts/ApiSecretKey.R")
+source("scripts/create_query.R")
+source("scripts/create_info_text.R")
+source("scripts/magnitude_color.R")
+source("scripts/statistics.R")
+source("scripts/plotting.R")
 ```
 
 

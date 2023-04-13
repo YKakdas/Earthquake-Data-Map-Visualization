@@ -1,5 +1,4 @@
 library(lubridate)
-library(tmaptools)
 library(tidygeocoder)
 
 create_query <- function(address = NULL, starttime = NULL, endtime = NULL,lat = NULL, lon = NULL, maxradiuskm = 200, minmagnitude = NULL) {

@@ -17,7 +17,7 @@ plot_earthquakes <-
     cat(query$message)
     earthquake_data <- read_csv(url, show_col_types = F)
     print(earthquake_data)
-    
+
     if (nrow(earthquake_data) == 0) {
       cat("Couldn't find any earthquakes for given parameters")
     } else {
