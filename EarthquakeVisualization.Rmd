@@ -1,0 +1,138 @@
+---
+title: "R Notebook"
+output: html_notebook
+author: "Yasar Kakdas"
+---
+
+```{r warning=FALSE}
+library(tidyverse)
+library(googleway)
+library(tmaptools)
+```
+
+
+```{r warning=FALSE}
+source("ApiSecretKey.R")
+source("create_query.R")
+source("create_info_text.R")
+source("magnitude_color.R")
+source("statistics.R")
+source("plotting.R")
+```
+
+
+## TEST SCENARIOUS
+
+
+### 1. Run with default parameters, it will bring the latest earthquakes(last 30 days) from all over the world
+
+
+```{r}
+suppressWarnings(plot_earthquakes())
+```
+
+
+
+### 2. Run with specific address, it will bring the latest earthquakes(last 30 days) for 200km perimeter of the given address
+
+
+```{r}
+suppressWarnings(plot_earthquakes(address = "Japan"))
+```
+
+
+
+
+### 3. Run with specific address and date. (The earthquake that happened in February 2023 in Turkey is a good example)
+
+```{r}
+suppressWarnings(
+  plot_earthquakes(
+    address = "Kahramanmaras",
+    starttime = "Feb 4 2023",
+    endtime = "Feb 8 2023"
+  )
+)
+```
+
+
+### 4. Add max radius constraint for the last query
+
+```{r}
+suppressWarnings(
+  plot_earthquakes(
+    address = "Kahramanmaras",
+    starttime = "Feb 4 2023",
+    endtime = "Feb 8 2023",
+    maxradiuskm = 75
+  )
+)
+```
+
+
+### 5. Add bounding box visualization for the last query
+
+```{r}
+suppressWarnings(
+  plot_earthquakes(
+    address = "Kahramanmaras",
+    starttime = "Feb 4 2023",
+    endtime = "Feb 8 2023",
+    maxradiuskm = 75,
+    show_bounding_box = T
+  )
+)
+```
+
+
+
+### 6. Show info window on hovering the circle
+
+```{r}
+suppressWarnings(
+  plot_earthquakes(
+    address = "Kahramanmaras",
+    starttime = "Feb 4 2023",
+    endtime = "Feb 8 2023",
+    maxradiuskm = 75,
+    show_bounding_box = T,
+    show_info_window_on_hover = T
+  )
+)
+```
+
+
+### 7. Show info window on clicking the circle
+
+```{r}
+suppressWarnings(
+  plot_earthquakes(
+    address = "Kahramanmaras",
+    starttime = "Feb 4 2023",
+    endtime = "Feb 8 2023",
+    maxradiuskm = 75,
+    show_bounding_box = T,
+    show_info_window_on_click = T
+  )
+)
+```
+
+
+
+### 8. Add min magnitude constraint for the last query
+
+```{r}
+suppressWarnings(
+  plot_earthquakes(
+    address = "Kahramanmaras",
+    starttime = "Feb 4 2023",
+    endtime = "Feb 8 2023",
+    maxradiuskm = 75,
+    show_bounding_box = T,
+    show_info_window_on_click = T,
+    minmagnitude = 5.5
+  )
+)
+```
+
+
